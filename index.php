@@ -7,11 +7,13 @@
         echo "Aduh, gagal nih gan";
     }
 ?>
+<body bgcolor="cyan"></body>
 
-<h1>Input Data Mahasiswa</h1>
-
+<h1>Tampilan Menginput Data Mahasiswa</h1>
+<h3>Muh Faza Almaliki</h3>
+<h4>E1E118056</h4>
 <form action="" method="post">
-<table border="2">
+<table bgcolor="yellow" border="2">
     <tr>
         <td>Nama  </td>
         <td><input type="text" name="Nama"></td>
@@ -19,14 +21,6 @@
     <tr>
         <td>NIM  </td>
         <td><input type="text" name="NIM"></td>
-    </tr>
-    <tr>
-        <td>Tempat Lahir  </td>
-        <td><input type="text" name="Tempat_Lahir"></td>
-    </tr>
-    <tr>
-        <td>Tanggal Lahir  </td>
-        <td><input type="date" name="Tanggal_Lahir"></td>
     </tr>
     <tr>
         <td>Jurusan  </td>
@@ -44,13 +38,11 @@
     <input type="submit" name="registrasi" value="Registrasi">
 </form>
 <h1>Hasil Input Data Mahasiswa</h1>
-<table border="2">
+<table border="1" background="lightskyblue">
     <thead>
         <th>No</th>
         <th>Nama</th>
         <th>NIM</th>
-        <th>Tempat Lahir</th>
-        <th>Tanggal Lahir</th>
         <th>Jurusan</th>
         <th>Alamat</th>
         <th>Nomor Telepon</th>
@@ -72,8 +64,6 @@
             <td><?=$data[3] ?></td>
             <td><?=$data[4] ?></td>
             <td><?=$data[5] ?></td>
-            <td><?=$data[6] ?></td>
-            <td><?=$data[7] ?></td>
             <td>
                 <a href="index.php?id=<?=$data[0]?>">Delete</a>
             </td>
@@ -88,8 +78,8 @@
 
 <?php
     if(isset($_POST['registrasi'])){
-        $sqlInput = "INSERT INTO `mahasiswa` (`Nama`,`NIM`,`Tempat_Lahir`,`Tanggal_Lahir`,`Jurusan`,`Alamat`,`No_hp`)
-                VALUES ('$_POST[Nama]', '$_POST[NIM]', '$_POST[Tempat_Lahir]', '$_POST[Tanggal_Lahir]', '$_POST[Jurusan]', '$_POST[Alamat]', '$_POST[No_hp]')";
+        $sqlInput = "INSERT INTO `mahasiswa` (`Nama`,`NIM`,`Jurusan`,`Alamat`,`No_hp`)
+                VALUES ('$_POST[Nama]','$_POST[NIM]','$_POST[Jurusan]','$_POST[Alamat]','$_POST[No_hp]')";
         $cekInput = mysqli_query($koneksi, $sqlInput);
         if($cekInput){
             // echo "Datanya udah masuk gan";
